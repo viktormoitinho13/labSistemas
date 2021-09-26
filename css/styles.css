@@ -1,1 +1,44 @@
-
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url("../imagens/fundo_vermelho.jpg");
+    background-size: cover;
+  }
+  #login .container #login-row #login-column #login-box {
+    margin-top: 10vh;
+    max-width: 600px;
+    height: 450px;
+    /* background-color: #3d5ead; */
+    background-color: #FF1D25;
+  }
+  #login .container #login-row #login-column #login-box #login-form {
+    padding: 40px;
+  }
+  .text-info{
+      color: white !important;
+  }
+  .img-profile{
+    width: 100%;
+    text-align: center;
+  }
+  .img-profile i{
+    font-size: 100px;
+    font-weight: 100;
+    color: white;
+  }
+  #login-box{
+    border-radius: 40px;
+  }
+  .submitBtn{
+    text-align: center;
+  }
+  .submitBtn input{
+    background-color: #1e1c1c;
+    color: white;
+    border-radius: 10px;
+  }
+  .btn{
+    margin-top: 10px;
+    width: 50%;
+  }
