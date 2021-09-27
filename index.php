@@ -19,11 +19,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="password" class="text-info">Senha:</label><br>
-<<<<<<< HEAD
                                 <input type="password" name="password" id="password" class="form-control">
-=======
-                                <input type="text" name="password" id="password" class="form-control">
->>>>>>> 22fc3ff332bf071f09db7a83759bdad39c2b95c3
                             </div>
                             <div class="form-group submitBtn">
                                 <input type="submit" name="submit" class="btn btn-md" value="Entrar"><br><br>

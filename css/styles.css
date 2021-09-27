@@ -38,7 +38,11 @@ body {
     color: white;
     border-radius: 10px;
   }
+  .submitBtn input:hover{
+    background-color:  #a44450;
+  }
   .btn{
     margin-top: 10px;
     width: 50%;
   }
+ 
