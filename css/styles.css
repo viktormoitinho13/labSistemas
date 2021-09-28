@@ -45,4 +45,7 @@ body {
     margin-top: 10px;
     width: 50%;
   }
+  .esqueci-senha:hover{
+    cursor:pointer
+  }
  

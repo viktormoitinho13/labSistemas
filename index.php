@@ -23,7 +23,7 @@
                             </div>
                             <div class="form-group submitBtn">
                                 <input type="submit" name="submit" class="btn btn-md" value="Entrar"><br><br>
-								<p class="text-info">Esqueci minha senha</p>
+								<p class="text-info esqueci-senha">Esqueci minha senha</p>
                             </div>
                         </form>
                     </div>
