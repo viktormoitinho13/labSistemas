@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'users',
+        'passwords' => 'testLogin', #Alterar
     ],
 
     /*
@@ -38,7 +38,7 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'testLogin', #Alterar
         ],
     ],
 
@@ -63,6 +63,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'testLogin' => [ #Alterar
+                'driver' => 'eloquent',
+                'model' => App\Models\Usuario::class
+
         ],
 
         // 'users' => [
@@ -89,6 +94,12 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'loginTest' => [ #Alterar
+            'provider' => 'testLogin', #Alterar
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

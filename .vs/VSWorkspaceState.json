@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\app",
+    "\\app\\Console",
+    "\\app\\Exceptions",
+    "\\app\\Http\\Controllers",
+    "\\bootstrap",
+    "\\public",
+    "\\routes",
+    "\\storage",
+    "\\tests"
+  ],
+  "SelectedNode": "\\config\\auth.php",
+  "PreviewInSolutionExplorer": false
+}

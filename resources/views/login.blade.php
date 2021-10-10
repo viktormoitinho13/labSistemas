@@ -10,12 +10,13 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
+
     <div id="login">
         <div class="container">
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
-                        <form action="user" id="login-form" class="form" action="" method="post">
+                        <form action=" {{Route('auth.user')}} " id="login-form" class="form" method="post">
                         @csrf
 							<div class="img-profile"><i class="far fa-user-circle"></i></div>							
                             <div class="form-group">

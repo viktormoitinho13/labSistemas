@@ -7,6 +7,6 @@
 <body>
     <h1>Página Principal</h1>
     <h2>Olá, {{session('username')}}</h2>
-    <a href="/logout">Logout </a>
+    <a href="/logout" action="{{ Route('logout.user') }}">Logout </a>
 </body>
 </html>

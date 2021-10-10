@@ -14,27 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::post("user", [UserAuthController::class, 'userLogin']);
-Route::view("home", 'home');
-
-Route::get('/login', function()
-{
-    if(session()->has('username'))
-    {
-        return redirect('home');
-    }
-    return view('login');
-});
-
-Route::get('/logout', function()
-{
-    if(session()->has('username'))
-    {
-        session()->pull('username');
-    }
-    return redirect('login');
-});
+Route::get('/login', [UserAuthController::class, 'login'])->name('login.user');
+Route::post('/auth', [UserAuthController::class, 'auth'])->name('auth.user');
+Route::get('/logout', [UserAuthController::class, 'logout'])->name('logout.user');
+Route::get('/home', [UserAuthController::class, 'home'])->middleware('auth.basic');
