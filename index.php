@@ -1,3 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>LabSistemas</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link href="fontawesome/css/all.css" rel="stylesheet">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link rel="stylesheet" type="text/css" href="css/styles.css">
 <link href="fontawesome/css/all.css" rel="stylesheet">
@@ -22,7 +42,7 @@
                                 <input type="password" name="password" id="password" class="form-control">
                             </div>
                             <div class="form-group submitBtn">
-                                <input type="submit" name="submit" class="btn btn-md" value="Entrar"><br><br>
+                                <input type="submit" name="submit" class="btn btn-md btn-entrar" value="Entrar"><br><br>
 								<p class="text-info esqueci-senha">Esqueci minha senha</p>
                             </div>
                         </form>
@@ -31,4 +51,10 @@
             </div>
         </div>
     </div>
+    <script>
+        document.querySelector('.btn-entrar').addEventListener('click', function(e){
+            e.preventDefault();
+            window.location.href = "labsistema/";
+        })
+    </script>
 </body>
