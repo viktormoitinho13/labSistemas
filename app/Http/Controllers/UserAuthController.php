@@ -8,6 +8,8 @@ use App\Models\Usuario;
 
 class UserAuthController extends Controller
 {
+    protected $redirectTo = '/login';
+
     public function login(){
         return view('login');
     }
@@ -17,19 +19,20 @@ class UserAuthController extends Controller
     }
 
     public function auth(Request $req){
-        $user = Usuario::where('username', $req->username)
-                        ->where('password', $req->password)
+        $user = Usuario::where('loja_login', $req->username)
+                        ->where('loja_login_senha', md5($req->password)) #A função md5() converte a senha
                         ->first();
-
         if($user){
             Auth::login($user);
             $data = $req->input();
             $req->session()->put('username', $data['username']);
-            return redirect('home');
+            if(Auth::check($user)){
+                return redirect('home');
+            }else{
+                echo "Não autenticado";
+            }    
         }else{
-            return back()->withErrors([
-                'username' => 'Usuário não encontrado no sistema.',
-            ]);
+            echo "User não encontrado";
         }
     }
 

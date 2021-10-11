@@ -40,7 +40,7 @@ class AuthBasic
      */
     public function handle($request, Closure $next, $guard = null, $field = null)
     {
-        $this->auth->guard($guard)->basic($field ?: 'username');
+        $this->auth->guard($guard)->basic($field ?: 'loja_login');
 
         return $next($request);
     }

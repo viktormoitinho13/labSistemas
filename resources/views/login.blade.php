@@ -21,7 +21,7 @@
 							<div class="img-profile"><i class="far fa-user-circle"></i></div>							
                             <div class="form-group">
                                 <label for="username" class="text-info">Usuário:</label><br>
-                                <input type="text" name="username" id="username" class="form-control">
+                                <input type="text" name="username" id="username" value=" {{ old('username') }} " class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="password" class="text-info">Senha:</label><br>
@@ -29,7 +29,7 @@
                             </div>
                             <div class="form-group submitBtn">
                                 <input type="submit" name="submit" class="btn btn-md" value="Entrar"><br><br>
-								<p class="text-info">Esqueci minha senha</p>
+								<a href="/recover" class="text-info">Esqueci minha senha</a>
                             </div>
                         </form>
                     </div>
