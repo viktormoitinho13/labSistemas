@@ -1,0 +1,242 @@
+body{
+    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+    margin: 0!important;
+}
+.wrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
+.sidebar-divider{
+    margin: 0 1rem 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+.menu-lateral{
+    width: 20vw;
+    min-height: 100vh;
+    background-color: #ec3f42;
+}
+.menu-lateral ul{
+    margin: 0;
+    padding: 15px 10px!important;
+}
+.menu-lateral ul li{
+    list-style: none;
+    text-align: left;
+    padding: 20px 5px;
+    color: #fff;
+}
+.menu-lateral ul .menu-itens:hover{
+    background-color: #f56d70;
+    cursor: pointer;
+}
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    width: 78vw;
+}
+.navbar{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    padding: 25px;
+    justify-content: space-between;
+    height: 70px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.419);
+}
+.navbar span{
+    margin-left: 15px;
+    color: #858796;
+}
+.navbar .user i{
+    color: #d1d3e2;
+    margin: 0 10px;
+}
+.cadastro-form{
+    /* width: 75vw; */
+    margin: 50px 0 10px 0;
+    text-align: center;
+}
+.cadastro-form h2{
+    color: #858796;
+}
+.cadastro-form input{
+    width: 40%;
+    margin: 10px;
+    padding: 10px;
+    line-height: 1.4;
+    background-color: #ec3f42;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+}
+.cadastro-form .button{
+    padding: 15px 25px;
+    border-style: none;
+    color: #fff;
+}
+.cadastro-form .button:hover{
+    cursor: pointer;
+    color: #fff;
+}
+.form-usuario{
+    display: none;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+.form-produto{
+    display: none;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+.cadastro-form b, .cadastro-form label{
+  color: #fff;
+}
+
+
+
+
+
+/* FORM USUARIO */
+
+@use postcss-preset-env {
+    stage: 0;
+  }
+  
+  /* ---------- GENERAL ---------- */
+  * {
+    box-sizing: inherit;
+  }
+  
+  html {
+    box-sizing: border-box;
+  }
+  
+  
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  input {
+    background-image: none;
+    border: none;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s;
+    color:rgb(255, 255, 255);
+  }
+  
+  svg {
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+  }
+  
+  /* ---------- ALIGN ---------- */
+  .align {
+    display: grid;
+    place-items: center;
+  }
+  
+  /* ---------- BUTTON ---------- */
+  
+ 
+  .button,
+  .button:focus,
+  .button:hover {
+    font-size: 19px;
+    color:black;
+    background-color: #28ad63;
+  }
+  
+  /* ---------- ICONS ---------- */
+  .icons {
+    display: none;
+  }
+  
+  .icon {
+    fill: currentcolor;
+    display: inline-block;
+    height: 1em;
+    width: 1em;
+  }
+  
+  /* ---------- LOGIN ---------- */
+  .login {
+    width: 600px;
+  }
+  
+  .login__header {
+    background-color: #f95252;
+    border-top-left-radius: 1.25em;
+    border-top-right-radius: 1.25em;
+    color: rgb(0, 0, 0);
+    padding: 1.25em 1.625em;
+    width: 600px;
+    text-decoration-color: black;
+  }
+  
+  .login__header :first-child {
+    margin-top: 0;
+  }
+  
+  .login__header :last-child {
+    margin-bottom: 0;
+  }
+  
+  .login h2 .icon {
+    margin-right: 14px;
+  }
+  
+  .login__form {
+    background-color: rgb(216, 12, 12)                                                    ;
+    border-bottom-left-radius: 1.25em;
+    border-bottom-right-radius: 1.25em;
+    color: rgb(255, 255, 255);
+    display: grid;
+    gap: 0.875em;
+    padding: 1.25em 1.625em;
+  }
+  
+  .login input {
+    border-radius: 0.1875em;
+  }
+  
+  .login input[type="email"],
+  .login input[type="password"] {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    padding: 0.25em 0.625em;
+    width: 100%;
+  }
+  
+  .login input[type="submit"] {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .titulo{
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size:15px;
+    text-align: left;
+  }
+
+  input::placeholder {
+    color: rgba(255, 255, 255, 0.323);
+  }
+
+  .niver{
+    color: rgba(255, 255, 255, 0.323);
+  }
+
+  .banner{
+    color: rgb(0, 0, 0);
+    font-size:30px;
+  }

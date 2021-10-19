@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background-image: url("../imagens/fundo_vermelho.jpg");
+    background-image: url("../images/fundo_vermelho.jpg");
     background-size: cover;
   }
   #login .container #login-row #login-column #login-box {
