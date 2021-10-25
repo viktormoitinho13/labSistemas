@@ -183,7 +183,7 @@
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col">Id</th>
+                            <th scope="col">TESTE</th>
                             <th scope="col">Nome</th>
                             <th scope="col">Preço</th>
                             <th scope="col">Custo</th>
