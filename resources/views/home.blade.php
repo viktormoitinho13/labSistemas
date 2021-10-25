@@ -52,7 +52,7 @@
                                     </svg> Cadastro de Funcionário</b>
                 </header>
                 <div class="login">
-                    <form action="#" class="login__form" method="POST">
+                    <form action="" class="login__form" method="POST">
                             <div>
                             <label class="titulo" for="nome">NOME</label>
                             <input type="text" id="nome" name="nome" placeholder="Marcelo" required>

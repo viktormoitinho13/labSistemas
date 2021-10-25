@@ -19,8 +19,9 @@ class UserAuthController extends Controller
     }
 
     public function auth(Request $req){
-        $user = Usuario::where('loja_login', $req->username)
-                        ->where('loja_login_senha', md5($req->password)) #A função md5() converte a senha
+        $user = Usuario::where('id_login', $req->username)
+                        #->where('senha_loja', md5($req->password)) #A função md5() converte a senha
+                        ->where('senha_loja', $req->password)
                         ->first();
         if($user){
             Auth::login($user);
