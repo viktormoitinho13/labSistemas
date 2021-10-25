@@ -12,7 +12,7 @@
     <title>Home</title>
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <link href="../fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ asset('fontawesome/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/home.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
    
@@ -52,7 +52,8 @@
                                     </svg> Cadastro de Funcionário</b>
                 </header>
                 <div class="login">
-                    <form action="" class="login__form" method="POST">
+                    <form action="{{url('cadastrofuncionario')}}" class="login__form" method="POST">
+                        @csrf
                             <div>
                             <label class="titulo" for="nome">NOME</label>
                             <input type="text" id="nome" name="nome" placeholder="Marcelo" required>
@@ -60,7 +61,7 @@
 
                             <div>
                             <label class="titulo" for="nome">SOBRENOME</label>
-                            <input type="text" id="nome" name="nome" placeholder="Oliveira da Silva" required>
+                            <input type="text" id="nome" name="sobrenome" placeholder="Oliveira da Silva" required>
                             </div>
 
                             <div>
@@ -74,7 +75,7 @@
                             </div>
 
                             <div>
-                            <select class="titulo" type="text" name="cargo" class="browser-default" required>
+                            <select style="display:block" class="titulo" type="text" name="cargo" class="browser-default" required>
                                         <option selected hidden>Escolha um cargo</option>
                                         <option value="1">Gerente</option>
                                         <option value="2">Caixa</option>
@@ -84,7 +85,7 @@
                             </div>
 
                             <div>
-                            <select class="titulo" type="text" name="loja" class="browser-default" required>
+                            <select style="display:block" class="titulo" type="text" name="loja" class="browser-default" required>
                                         <option selected hidden value="">Defina a Loja</option>
                                         <option value="1">LOJA 1 - Guarulhos</option>
                                         <option value="2">LOJA 2 - Vila-Galvão</option>
