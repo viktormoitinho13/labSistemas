@@ -14,8 +14,21 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="../fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-   
+
+    <!-- conteudo do materialize - para a opção select aparecer -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.js"></script><style type="text/css"></style>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <!-- inicializa o materialize -->
+    <script type="text/javascript">
+    window.onload=function(){
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+    } 
+
+</script>
+
 </head>
 
 <body>
@@ -65,7 +78,7 @@
 
                             <div>
                             <label class="titulo" for="cpf">CPF</label>
-                            <input type="number" id="cpf" name="cpf" placeholder="40033322211" required>
+                            <input type="number" id="cpf" name="cpf" placeholder="40033322211" required pattern="[0-9]+$"  required>
                             </div>
 
                             <div>
@@ -74,22 +87,22 @@
                             </div>
 
                             <div>
-                            <select class="titulo" type="text" name="cargo" class="browser-default" required>
-                                        <option selected hidden>Escolha um cargo</option>
-                                        <option value="1">Gerente</option>
-                                        <option value="2">Caixa</option>
-                                        <option value="3">Atendente</option>
-                                        <option value="4">Entregador</option>
+                            <select class="titulo" type="text" name="cargo" class="browser-default" required pattern="[1-4]">
+                                        <option selected hidden disabled="disabled" selected="selected" value="0">ESCOLHA UM CARGO</option>
+                                        <option value="1">GERENTE</option>
+                                        <option value="2">CAIXA</option>
+                                        <option value="3">ATENDENTE</option>
+                                        <option value="4">ENTREGADOR</option>
                             </select>
                             </div>
 
                             <div>
-                            <select class="titulo" type="text" name="loja" class="browser-default" required>
-                                        <option selected hidden value="">Defina a Loja</option>
-                                        <option value="1">LOJA 1 - Guarulhos</option>
-                                        <option value="2">LOJA 2 - Vila-Galvão</option>
-                                        <option value="3">LOJA 3 - Jaçanã</option>
-                                        <option value="4">LOJA 4 - Vila Maria</option>
+                            <select required class="titulo" type="text" name="loja" required>
+                                        <option value="" class="titulo" disabled="disabled" selected="selected" >ESCOLHA A LOJA</option>
+                                        <option value="1">LOJA 1 - GUARULHOS</option>
+                                        <option value="2">LOJA 2 - VILA GALVÃO</option>
+                                        <option value="3">LOJA 3 - JAÇANÃ</option>
+                                        <option value="4">LOJA 4 - VILA MARIA</option>
                             </select>
                             </div>
 
@@ -198,6 +211,10 @@
             this.type = 'text';
             this.placeholder = 'Data de Validade';
         });
+
+        $(document).ready(function() {
+  $("#cargo").formSelect();
+});
     </script>
 
 </body>
