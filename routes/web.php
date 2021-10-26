@@ -3,6 +3,10 @@
 use App\Http\Controllers\UserAuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\LojaController;
+use App\Http\Controllers\FabricanteController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +26,9 @@ Route::get('/logout', [UserAuthController::class, 'logout'])->name('logout.user'
 #Middleware bloqueando a rota mesmo autenticado // Descobrir a causa
 Route::get('/home', [UserAuthController::class, 'home']);
 Route::post('/cadastrofuncionario', [AdminController::class, 'cadastrofuncionario']);
+
+Route::post('/cadastroproduto', [ProdutoController::class, 'cadastroproduto']);
+Route::post('/cadastroloja', [LojaController::class, 'cadastroloja']);
+Route::post('/cadastrofabricante', [FabricanteController::class, 'cadastrofabricante']);
+
+

@@ -81,25 +81,16 @@ body{
     cursor: pointer;
     color: #fff;
 }
-.form-usuario{
-    display: none;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
-}
-.form-produto{
-    display: none;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
+
+.form-usuario, .form-produto, .secao-pesquisa, .form-fabricante, .form-loja{
+  display: none;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
 }
 .cadastro-form b, .cadastro-form label{
   color: #fff;
 }
-
-
-
-
 
 /* FORM USUARIO */
 
@@ -222,7 +213,7 @@ body{
   }
   
   .titulo{
-    color: rgb(0, 0, 0);
+    color: white;
     font-weight: bold;
     font-size:15px;
     text-align: left;
@@ -239,4 +230,22 @@ body{
   .banner{
     color: rgb(0, 0, 0);
     font-size:30px;
+  }
+
+  /* SEÇÃO DE PESQUISA */
+
+  .secao-pesquisa{
+    padding: 10px 50px;
+    width: 100%;
+  }
+  .pesquisa{
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 0 50px 0;
+  }
+  .pesquisa input{
+    margin: 0 50px;
+  }
+  .campo-pesquisa{
+    color: black;
   }
