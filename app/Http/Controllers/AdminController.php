@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Funcionario;
+use App\Models\Produto;
+use App\Models\DadosProduto;
 
 class AdminController extends Controller
 {
@@ -24,5 +26,11 @@ class AdminController extends Controller
 
 
         return redirect()->back();
+    }
+
+    public function listaProduto()
+    {
+        $data=DadosProduto::all();
+        return view('home', compact('data'));
     }
 }
