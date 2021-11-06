@@ -27,10 +27,4 @@ class AdminController extends Controller
 
         return redirect()->back();
     }
-
-    public function listaProduto()
-    {
-        $data=DadosProduto::all();
-        return view('home', compact('data'));
-    }
 }

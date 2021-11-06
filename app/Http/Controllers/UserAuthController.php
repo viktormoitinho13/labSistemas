@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Usuario;
+use App\Models\DadosProduto;
 
 class UserAuthController extends Controller
 {
@@ -15,7 +16,9 @@ class UserAuthController extends Controller
     }
 
     public function home(){
-        return view('home');
+        #solução temporária
+        $data=DadosProduto::all();
+        return view('home', compact('data'));
     }
 
     public function auth(Request $req){
@@ -42,5 +45,11 @@ class UserAuthController extends Controller
         $req->session()->invalidate();
         $req->session()->regenerateToken();
         return redirect('login');
+    }
+
+    public function procura(Request $req){
+        $procura =  $req->procura;
+        $data=DadosProduto::where('NOME_PRODUTO', 'Like', '%'.$procura.'%')->get();
+        return view('home', compact('data'));
     }
 }

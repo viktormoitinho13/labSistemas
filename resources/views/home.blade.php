@@ -7,10 +7,9 @@
 
     @include('sidebar')
     @include('navbar')
-
         @include('admin.cadastroFuncionario')
         @include('admin.cadastroProduto')
-        @include('consultaProduto')
+        @include('produtos')
         @include('admin.cadastroFabricante')
         @include('admin.cadastroLoja')
         

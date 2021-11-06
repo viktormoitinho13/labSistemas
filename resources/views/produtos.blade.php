@@ -1,8 +1,9 @@
-<div class="secao-pesquisa">
-                <div class="pesquisa">
-                    <input type="text" style="width:auto" class="campo-pesquisa">
-                    <input class="btn btn-primary" type="" value="Pesquisar">
-                </div>
+        <div class="secao-pesquisa">
+                <form class="pesquisa" method="get" action="{{url('procura')}}">
+                    @csrf
+                    <input type="search" style="width:auto" class="campo-pesquisa" name="procura">
+                    <input class="btn btn-primary" type="submit" value="Pesquisar">
+                </form>
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
@@ -14,8 +15,8 @@
                             <th scope="col">Lucro</th>
                         </tr>
                     </thead>
-                    <tbody>
 
+                    <tbody>
                     @foreach($data as $produto)
                         <tr>
                             <td>{{$produto->CODIGO_INTERNO}}</td>
@@ -29,5 +30,6 @@
                         </tr>
                     @endforeach
                     </tbody>
+
                 </table>
             </div>
