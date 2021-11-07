@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'login', #Tabela de login
+        'passwords' => 'login_adm', #Tabela de login
     ],
 
     /*
@@ -38,7 +38,7 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'login', #Tabela de login
+            'provider' => 'login_adm', #Tabela de login
         ],
     ],
 
@@ -64,7 +64,7 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-        'login' => [ #Inclusão de provider para tabela login
+        'login_adm' => [ #Inclusão de provider para tabela login
                 'driver' => 'eloquent',
                 'model' => App\Models\Usuario::class #Usando o model Usuário para validação
 
@@ -98,8 +98,8 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
-        'login' => [ #Tabela em uso
-            'provider' => 'login', #Tabela em uso
+        'login_adm' => [ #Tabela em uso
+            'provider' => 'login_adm', #Tabela em uso
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

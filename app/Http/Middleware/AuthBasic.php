@@ -4,8 +4,6 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Factory as AuthFactory;
-use Illuminate\Http\Request;
-
 
 class AuthBasic
 {
@@ -40,7 +38,7 @@ class AuthBasic
      */
     public function handle($request, Closure $next, $guard = null, $field = null)
     {
-        $this->auth->guard($guard)->basic($field ?: 'loja_login');
+        $this->auth->guard($guard)->basic($field ?: 'user_adm');
 
         return $next($request);
     }

@@ -9,47 +9,41 @@ use App\Models\DadosProduto;
 
 class UserAuthController extends Controller
 {
-    protected $redirectTo = '/login';
-
-    public function login(){
+    public function loginForm(){
         return view('login');
     }
 
     public function home(){
-        #solução temporária
-        $data=DadosProduto::all();
-        return view('home', compact('data'));
-    }
-
-    public function auth(Request $req){
-        $user = Usuario::where('id_login', $req->username)
-                        #->where('senha_loja', md5($req->password)) #A função md5() converte a senha
-                        ->where('senha_loja', $req->password)
-                        ->first();
-        if($user){
-            Auth::login($user);
-            $data = $req->input();
-            $req->session()->put('username', $data['username']);
-            if(Auth::check($user)){
-                return redirect('home');
-            }else{
-                echo "Não autenticado";
-            }    
-        }else{
-            echo "User não encontrado";
+        if(Auth::check()){
+            $data=DadosProduto::paginate(5);
+            return view('home', compact('data'));
         }
+        return redirect()->route('loginForm');
     }
 
-    public function logout(Request $req){
-        Auth::logout();
-        $req->session()->invalidate();
-        $req->session()->regenerateToken();
-        return redirect('login');
+    public function login(Request $req){
+        $user = $req->only('user_adm', 'password');
+        if(Auth::attempt($user)){
+            $req->session()->regenerateToken();
+            return redirect ('home');
+        }else{
+           return redirect()->back();
+        }
     }
 
     public function procura(Request $req){
         $procura =  $req->procura;
-        $data=DadosProduto::where('NOME_PRODUTO', 'Like', '%'.$procura.'%')->get();
+        if(!isset($req->campo)){
+            $campo = 'NOME_PRODUTO';
+        }$campo = $req->campo;
+        $data=DadosProduto::where($campo, 'Like', $procura)->get();
         return view('home', compact('data'));
+    }
+    
+    public function logout(Request $req){
+        Auth::logout();
+        $req->session()->invalidate();
+        $req->session()->regenerateToken();
+        return redirect('home');
     }
 }

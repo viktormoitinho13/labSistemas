@@ -16,20 +16,19 @@
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
-                        <form action=" {{url('auth')}} " id="login-form" class="form" method="post">
+                        <form action="{{Route('login')}}" id="login-form" class="form" method="post">
                         @csrf
 							<div class="img-profile"><i class="far fa-user-circle"></i></div>							
                             <div class="form-group">
                                 <label for="username" class="text-info">Usuário:</label><br>
-                                <input type="text" name="username" id="username" value=" {{ old('username') }} " class="form-control">
+                                <input type="text" name="user_adm" id="username" value=" {{ old('id_login') }} " class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="password" class="text-info">Senha:</label><br>
                                 <input type="password" name="password" id="password" class="form-control">
                             </div>
                             <div class="form-group submitBtn">
-                                <input type="submit" name="submit" class="btn btn-md" value="Entrar"><br><br>
-								<a href="/recover" class="text-info">Esqueci minha senha</a>
+                                <input type="submit" class="btn btn-md" value="Entrar"><br><br>
                             </div>
                         </form>
                     </div>

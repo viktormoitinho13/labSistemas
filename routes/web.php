@@ -19,19 +19,15 @@ use App\Http\Controllers\FabricanteController;
 |
 */
 
-Route::get('/login', [UserAuthController::class, 'login'])->name('login');
-Route::post('/auth', [UserAuthController::class, 'auth'])->name('auth.user');
-Route::get('/logout', [UserAuthController::class, 'logout'])->name('logout.user');
-#Route::get('/home', [UserAuthController::class, 'home'])->middleware('auth.basic');
-#Middleware bloqueando a rota mesmo autenticado // Descobrir a causa
-Route::get('/home', [UserAuthController::class, 'home']);
+Route::get('/', [UserAuthController::class, 'loginForm'])->name('loginForm');
+Route::post('/login', [UserAuthController::class, 'login'])->name('login');
+Route::post('/logout', [UserAuthController::class, 'logout'])->name('logout');
 
-Route::get('/procura', [UserAuthController::class, 'procura']);
-
-
-Route::post('/cadastrofuncionario', [AdminController::class, 'cadastrofuncionario']);
-Route::post('/cadastroproduto', [ProdutoController::class, 'cadastroproduto']);
-Route::post('/cadastroloja', [LojaController::class, 'cadastroloja']);
-Route::post('/cadastrofabricante', [FabricanteController::class, 'cadastrofabricante']);
+    Route::get('/procura', [UserAuthController::class, 'procura']);
+    Route::post('/cadastrofuncionario', [AdminController::class, 'cadastrofuncionario']);
+    Route::post('/cadastroproduto', [ProdutoController::class, 'cadastroproduto']);
+    Route::post('/cadastroloja', [LojaController::class, 'cadastroloja']);
+    Route::post('/cadastrofabricante', [FabricanteController::class, 'cadastrofabricante']);
+    Route::get('/home', [UserAuthController::class, 'home']);
 
 
