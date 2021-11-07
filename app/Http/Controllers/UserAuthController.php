@@ -15,7 +15,7 @@ class UserAuthController extends Controller
 
     public function home(){
         if(Auth::check()){
-            $data=DadosProduto::paginate(5);
+            $data = DadosProduto::all();
             return view('home', compact('data'));
         }
         return redirect()->route('loginForm');
@@ -31,12 +31,18 @@ class UserAuthController extends Controller
         }
     }
 
+    public function getListaProdutos(){
+        $produtos=DadosProduto::all();
+        return response()->json([
+            'produtos'=>$produtos,
+        ]);
+    }
+
     public function procura(Request $req){
         $procura =  $req->procura;
-        if(!isset($req->campo)){
-            $campo = 'NOME_PRODUTO';
-        }$campo = $req->campo;
-        $data=DadosProduto::where($campo, 'Like', $procura)->get();
+        $data=DadosProduto::where('CODIGO_INTERNO', 'Like', '%'.$procura.'%')
+                            ->orwhere('CODIGO_BARRA','%'.$procura.'%')
+                            ->orwhere('NOME_PRODUTO', 'Like', '%'.$procura.'%')->get();
         return view('home', compact('data'));
     }
     

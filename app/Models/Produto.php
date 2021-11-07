@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Produto extends Model
 {   
     protected $table = "ESTOQUE";
+    protected $primarykey = "ID_ESTOQUE";
     public $timestamps = false; #remove updated_at, created_at collumns
     use HasFactory;
 }

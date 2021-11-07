@@ -23,8 +23,10 @@ Route::get('/', [UserAuthController::class, 'loginForm'])->name('loginForm');
 Route::post('/login', [UserAuthController::class, 'login'])->name('login');
 Route::post('/logout', [UserAuthController::class, 'logout'])->name('logout');
 
+Route::get('/getListaProdutos', [UserAuthController::class, 'getListaProdutos'])->name('get.ListaProduto');
+
 Route::middleware(['auth'])->group(function () {
-    Route::get('/procura', [UserAuthController::class, 'procura']);
+    Route::post('/procura', [UserAuthController::class, 'procura']);
     Route::post('/cadastrofuncionario', [AdminController::class, 'cadastrofuncionario']);
     Route::post('/cadastroproduto', [ProdutoController::class, 'cadastroproduto']);
     Route::post('/cadastroloja', [LojaController::class, 'cadastroloja']);
