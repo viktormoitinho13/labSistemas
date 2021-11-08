@@ -1,8 +1,8 @@
         <div class="secao-pesquisa">
-                <form class="pesquisa" method="post" placeholder="valor" action="{{url('procura')}}">
+                <form class="pesquisa" method="post" placeholder="valor" >
                     @csrf
                     <input type="search" style="width:auto" class="campo-pesquisa" name="procura">
-                    <input class="btn btn-primary" type="submit" value="Pesquisar">
+                    <input id="busca" class="btn btn-primary btnpesquisa" type="submit" value="Pesquisar">
                 </form>
                 <table class="table">
                     <thead class="thead-dark">
@@ -16,20 +16,9 @@
                         </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody class="resultProduto">
                     @if(isset($data))
-                    @foreach($data as $produto)
-                        <tr>
-                            <td>{{$produto->CODIGO_INTERNO}}</td>
-                            <td>{{$produto->CODIGO_BARRA}}</td>
-                            <td>{{$produto->NOME_PRODUTO}}</td>
-                            <td>{{$produto->PRECO_PRODUTO}}</td>
-                            <td>{{$produto->CUSTO_PRODUTO}}</td>
-                            <td>{{$produto->LUCRO}}</td>
-                            <td><button class="btn btn-default fas fa-pencil-alt" title="Atualizar entrada" name="update"></button></td>
-                            <td><button class="btn btn-default fas fa-trash-alt" title="Remover entrada" name="excluir"></button></td>
-                        </tr>
-                    @endforeach
+                    
 
                     @if(method_exists($data,'links'))
                         <div class="d-flex justify-content-center">

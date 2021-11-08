@@ -14,7 +14,7 @@
 
                             <div>
                             <label class="titulo" for="nome">SOBRENOME</label>
-                            <input type="text" id="nome" name="nome" placeholder="Oliveira da Silva" required>
+                            <input type="text" id="nome" name="sobrenome" placeholder="Oliveira da Silva" required>
                             </div>
 
                             <div>
@@ -30,10 +30,10 @@
                             <div>
                             <select class="titulo" type="text" name="cargo" class="browser-default" required pattern="[1-4]">
                                         <option selected hidden disabled="disabled" selected="selected" value="0">ESCOLHA UM CARGO</option>
-                                        <option value="1">GERENTE</option>
-                                        <option value="2">CAIXA</option>
-                                        <option value="3">ATENDENTE</option>
-                                        <option value="4">ENTREGADOR</option>
+                                        <option value="Gerente">GERENTE</option>
+                                        <option value="Caixa">CAIXA</option>
+                                        <option value="Atendente">ATENDENTE</option>
+                                        <option value="Entregador">ENTREGADOR</option>
                             </select>
                             </div>
 

@@ -19,8 +19,7 @@ class AdminController extends Controller
         $data->nascimento_func = $req->nascimento;
         $data->salario_func = $req->salario;
         $data->cargo_func = $req->cargo;
-        $data->loja_func = $req->loja;
-        $data->id_pi = '3';
+        $data->loja_func = $req->selectloja;
 
         $data->save();
 

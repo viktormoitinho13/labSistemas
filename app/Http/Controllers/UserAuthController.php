@@ -15,8 +15,8 @@ class UserAuthController extends Controller
 
     public function home(){
         if(Auth::check()){
-            $data = DadosProduto::all();
-            return view('home', compact('data'));
+            
+            return view('home');
         }
         return redirect()->route('loginForm');
     }
@@ -31,7 +31,7 @@ class UserAuthController extends Controller
         }
     }
 
-    public function getListaProdutos(){
+    public function ListaProdutos(){
         $produtos=DadosProduto::all();
         return response()->json([
             'produtos'=>$produtos,
@@ -43,7 +43,10 @@ class UserAuthController extends Controller
         $data=DadosProduto::where('CODIGO_INTERNO', 'Like', '%'.$procura.'%')
                             ->orwhere('CODIGO_BARRA','%'.$procura.'%')
                             ->orwhere('NOME_PRODUTO', 'Like', '%'.$procura.'%')->get();
-        return view('home', compact('data'));
+        
+        return response()->json([
+            'produtos'=>$data,
+        ]);
     }
     
     public function logout(Request $req){

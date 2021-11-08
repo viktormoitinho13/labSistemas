@@ -22,45 +22,50 @@
             });
         } 
     </script>
-    <!-- Scripts para requisição AJAX -->
-    <!--
-        
-        method="post" placeholder="valor" action="{{url('procura')}}"
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    -->
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
-    
-    <!--
-        <script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script> 
+    <script>
         $(document).ready(function(){
-            fetchProdutos();
 
-function fetchProdutos(){
-    $.ajax({
-        type: "GET",
-        url: "/getListaProdutos",
-        dataType: "json",
-        success: function(response){
-            //console.log(response.produtos)
-            $.each(response.produtos, function(key, item){
-                $('tbody').append(
-                    '<tr>\
-                    <td>'+item.CODIGO_INTERNO+'</td>\
-                    <td>'+item.CODIGO_BARRA+'</td>\
-                    <td>'+item.NOME_PRODUTO+'</td>\
-                    <td>'+item.PRECO_PRODUTO+'</td>\
-                    <td>'+item.CUSTO_PRODUTO+'</td>\
-                    <td>'+item.LUCRO+'</td>\
-                    <td><button class="btn btn-default fas fa-pencil-alt" title="Atualizar entrada" name="update"></button></td>\
-                    <td><button class="btn btn-default fas fa-trash-alt" title="Remover entrada" name="excluir"></button></td>\
-                    </tr>');
-            });
+            document.querySelector('#busca').addEventListener('click', function(e){
+                e.preventDefault();
+                apagarDados();
+                var dados = document.querySelector('.campo-pesquisa').value;
+                console.log(dados);
+                $.ajax({
+                    type: "POST",
+                    url: '/procura',
+                    datatype: 'json',
+                    data: { 'procura':dados, _token: '{{csrf_token()}}' },
+                    success: function(response){
+                        $.each(response.produtos, function(key, item){
+                            $('.resultProduto').append(
+                                        '<tr>\
+                                <td>'+item.CODIGO_INTERNO+'</td>\
+                                <td>'+item.CODIGO_BARRA+'</td>\
+                                <td>'+item.NOME_PRODUTO+'</td>\
+                                <td>'+item.PRECO_PRODUTO+'</td>\
+                                <td>'+item.CUSTO_PRODUTO+'</td>\
+                                <td>'+item.LUCRO+'</td>\
+                                <td><button class="btn btn-default fas fa-pencil-alt" title="Atualizar entrada" name="update"></button></td>\
+                                <td><button class="btn btn-default fas fa-trash-alt" title="Remover entrada" name="excluir"></button></td>\
+                                </tr>');
+                        });
+                    },
+                    error: function(response2){
+                        //console.log(response2);
+                        console.log(data);
+                    }
+                }); 
+            })
+        });
+        function apagarDados(){
+            var dadosTabela = document.querySelector('.resultProduto');
+            while(dadosTabela.hasChildNodes()){
+                dadosTabela.removeChild(dadosTabela.firstChild);
+            }
         }
-    });
-}
 
-        })
-    </script>
-    -->
+
+</script> 
 
