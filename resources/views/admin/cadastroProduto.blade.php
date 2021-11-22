@@ -40,13 +40,13 @@
                             <input type="date" id="vencimento_produto" name="data_vencimento" placeholder="11/02/1990" required>
                             </div>
                             <div>
-                            <select required id="fabricante_id" class="form-select" type="text" name="selectfabricante" required>
-                                        <option value="" disabled="disabled" selected="selected" >ESCOLHA A FABRICANTE</option>
+                            <select required id="fabricante_id" class="titulo" type="text" name="selectfabricante" required>
+                                        <option value="" class="titulo" disabled="disabled" selected="selected" >ESCOLHA A FABRICANTE</option>
                                         <option value="1">EUROFARMA</option>
                                         <option value="2">ULTRAFARMA</option>
                                         <option value="3">TAKEDA</option>
                                         <option value="4">ACHÉ</option>
-                                        
+
                             </select>
                             </div>
 

@@ -40,6 +40,10 @@
                             <div>
                             <select id="selectLojaFuncionario" required class="titulo" id="cargo" type="text" name="selectloja" required>
                                         <option value="" class="titulo" disabled="disabled" selected="selected" >ESCOLHA A LOJA</option>
+                                        <option value="1"> Loja 01</option>
+                                        <option value="2"> Loja 02</option>
+                                        <option value="3"> Loja 03</option>
+                                        <option value="4"> LOja 04</option>
                             </select>
                             </div>
 

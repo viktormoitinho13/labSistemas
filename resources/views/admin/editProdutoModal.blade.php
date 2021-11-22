@@ -7,7 +7,11 @@ aria-hidden="true" data-keyboard="false" data-backdrop="static">
             </div>
             <div class="modal-body">
                 
-                <form action="">
+                <form  class="form_updateProduto">
+                    @csrf
+                            
+                            <input type="hidden" name="produto_id">
+
                             <div class="form-group">
                             <label for="codigoproduto">CÓDIGO DO PRODUTO - EAN</label>
                             <input type="number" id="codigo_produto" name="codigo" placeholder="78955825468789" required>
@@ -39,21 +43,25 @@ aria-hidden="true" data-keyboard="false" data-backdrop="static">
                             </div>
 
                             <div class="form-group">
-                            <select class="form-select" style="display:block;" required id="fabricante_id" type="text" name="selectfabricante" required>
-                                        <option value=""  disabled="disabled" selected="selected" >ESCOLHA A FABRICANTE</option>
+                            <select required id="fabricante_id" class="titulo" type="text" name="selectfabricante" required>
+                                        <option value="" class="titulo" disabled="disabled" selected="selected" >ESCOLHA A FABRICANTE</option>
                                         <option value="1">EUROFARMA</option>
                                         <option value="2">ULTRAFARMA</option>
                                         <option value="3">TAKEDA</option>
                                         <option value="4">ACHÉ</option>
+
                             </select>
                             </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary modal-close" data-dismiss="modal" aria-label="close">Fechar</button>
+                                <button type="submit" class="btn btn-primary">Save Alterações</button>
+                            </div>
+                            
                 </form>
 
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="close">Fechar</button>
-                <button type="button" class="btn btn-primary">Save Alterações</button>
-            </div>
+            
         </div>
     </div>
 </div>

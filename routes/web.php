@@ -24,16 +24,14 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/getDetalhesProduto', [UserController::class, 'getDetalhesProduto'])->name('get.DetalhesProduto');
 Route::get('/getListaProdutos', [UserController::class, 'ListaProdutos'])->name('get.ListaProduto');
 Route::get('/getListaLojas', [UserController::class, 'getListaLoja']);
-Route::get('/modal', function(){
-    return view('admin.editProdutoModal');
-});
 
 Route::middleware(['auth'])->group(function () {
     Route::post('/cadastrofuncionario', [AdminController::class, 'cadastrofuncionario']);
     Route::post('/cadastroproduto', [AdminController::class, 'cadastroproduto']);
     Route::post('/cadastroloja', [AdminController::class, 'cadastroloja']);
     Route::post('/cadastrofabricante', [AdminController::class, 'cadastrofabricante']);
-    Route::post('/procura', [UserController::class, 'procura'])->name('procuraProdutos');
+    Route::post('/procuraProduto', [UserController::class, 'procuraProduto'])->name('procuraProdutos');
+    Route::post('/updateProduto', [AdminController::class, 'atualizaProduto']);
     Route::delete('/deletaProduto', [AdminController::class, 'deletaProduto'])->name('deletaProdutos');
     Route::get('/home', [AuthController::class, 'home']);
 });

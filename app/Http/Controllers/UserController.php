@@ -22,7 +22,7 @@ class UserController extends Controller
         return response()->json(['lojas'=>$lojas,]);
     }
 
-    public function procura(Request $req){
+    public function procuraProduto(Request $req){
         $procura =  $req->procura;
         $data=DadosProduto::where('CODIGO_INTERNO', 'Like', '%'.$procura.'%')
                             ->orwhere('CODIGO_BARRA','%'.$procura.'%')

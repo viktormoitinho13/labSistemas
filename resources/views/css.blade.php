@@ -11,15 +11,4 @@
     <link href="{{ asset('css/home.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-    <script type="text/javascript" src="//code.jquery.com/jquery-3.6.0.js"></script> 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script> 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-    <script type="text/javascript">
-    window.onload=function()
-        {
-            $(document).ready(function() 
-            {
-                $('select').material_select();
-            });
-        } 
-    </script>
+    

@@ -1,6 +1,18 @@
     </div> <!-- Fim da div de conteúdo --> 
 </div> <!-- Fim do wrapper; -->
 
+<script type="text/javascript" src="//code.jquery.com/jquery-3.6.0.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script> 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript">
+    window.onload=function()
+        {
+            $(document).ready(function() 
+            {
+                $('select').formSelect();
+            });
+        } 
+    </script>
 <script>
         document.querySelector('.btn-cadastro-usuario').addEventListener('click', function(){
            document.querySelector('.form-produto').setAttribute('style', 'display:none');
@@ -64,8 +76,8 @@
                         alert("Dados cadastrados com sucesso");
                     },
                     error: function(data){
-                        alert("Erro ao inserir produto.");
-                        console.log(data);
+                        //alert("Erro ao inserir produto.");
+                        alert(response.responseJSON.message);
                     }
                 }); 
             })
@@ -81,7 +93,7 @@
                     },
                     error: function(data){
                         alert("Erro ao inserir loja.");
-                        console.log(data);
+                        //alert(response.responseJSON.message);
                     }
                 }); 
             })
@@ -97,7 +109,7 @@
                     },
                     error: function(response){
                         alert('Erro ao inserir fabricante.');
-                        console.log(response)
+                        //alert(response.responseJSON.message);
                     }
                 });
             })
@@ -112,8 +124,8 @@
                         alert("Dados inseridos com sucessso.");
                     },
                     error: function(response){
-                        alert("Erro ao inserir dados.");
-                        console.log(response);
+                        //alert("Erro ao inserir dados.");
+                        alert(response.responseJSON.message);
                     }
                 });
             })
@@ -125,7 +137,7 @@
                 console.log(dados);
                 $.ajax({
                     type: "POST",
-                    url: '/procura',
+                    url: '/procuraProduto',
                     datatype: 'json',
                     data: { 'procura':dados, _token: '{{csrf_token()}}' },
                     success: function(response){
@@ -152,6 +164,8 @@
                 }); 
             })
 
+            $('.modal').modal(); //Inicializa os Modals
+            
             $(document).on('click', '#editaProduto', function(){
                 var produto_id = $(this).attr("produto-id");
                 $.ajax({
@@ -160,13 +174,37 @@
                     datatype: "json",
                     data: {produto_id:produto_id},
                     success: function(data){
-                        // alert(data.detalhes[0].NOME_PRODUTO);
-
-                        
-                        $('.editProduto').modal('show');
+                        $('.editProduto').find('input[name="produto_id"]').val(data.detalhes[0].ID_ESTOQUE);
+                        $('.editProduto').find('input[name="codigo"]').val(data.detalhes[0].EAN_PRODUTO);
+                        $('.editProduto').find('input[name="nome_produto"]').val(data.detalhes[0].NOME_PRODUTO);
+                        $('.editProduto').find('input[name="preco"]').val(data.detalhes[0].PRECO_PRODUTO);
+                        $('.editProduto').find('input[name="custo"]').val(data.detalhes[0].CUSTO_PRODUTO);
+                        $('.editProduto').find('input[name="data_fabricacao"]').val(data.detalhes[0].FABRICACAO_PRODUTO);
+                        $('.editProduto').find('input[name="data_vencimento"]').val(data.detalhes[0].VALIDADE_PRODUTO);
+                        //$('.editProduto').find('option[id="fabricante_id"]').val(data.detalhes[0].ID_FABRICANTE);
+                        $('.editProduto').modal('open');
                     },
                     error: function(data){
-                        console.log(data);
+                        //console.log(data);
+                        alert("Erro ao abrir o modal do produto");
+                    }
+                });
+            });
+
+            $('.form_updateProduto').on('submit', function(e){
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: '/updateProduto',
+                    datatype: 'json',
+                    data: $('.form_updateProduto').serialize(),
+                    success: function(response){
+                        $('.editProduto').modal('close');
+                        alert("Atualizado com sucesso");
+                    },
+                    error: function(response){
+                        //alert("Erro ao inserir dados.");
+                        alert(response.responseJSON.message);
                     }
                 });
             });
@@ -183,8 +221,26 @@
                      alert('Produto deletado com sucesso');
                   },
                   error: function(response){
-                     alert('Erro ao deletar produto');
+                     alert('Erro ao confirmar deleção de produto');
                      console.log(response);
+                  }
+                });
+            });
+
+            $(document).on('click', '#deletaProduto', function(){
+                var id_produto = $(this).attr("produto-id");
+                $.ajax({
+                  type: "delete",
+                  url: '/deletaProduto',
+                  datatype: 'json',
+                  beforeSend:function(){
+                     return confirm("Você está prestes a deletar um produto");
+                  },
+                  data: {CODIGO_INTERNO:id_produto},
+                  sucess: function(response){
+                     alert('Produto deletado com sucesso');
+                  },
+                  error: function(response){
                   }
                 });
             });

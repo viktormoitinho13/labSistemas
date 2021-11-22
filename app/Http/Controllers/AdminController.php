@@ -36,7 +36,7 @@ class AdminController extends Controller
         $data->custo_produto = $req->custo;
         $data->validade_produto = $req->data_vencimento;
         $data->fabricacao_produto = $req->data_fabricacao;
-        $data->id_fabricante = '1'; #req->id_fabricante quando o formulário puxar as opções de fabricante pelo banco
+        $data->id_fabricante = $req->selectfabricante; #req->id_fabricante quando o formulário puxar as opções de fabricante pelo banco
         
         $data->save();
 
@@ -75,7 +75,27 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
+    public function atualizaProduto(Request $req){
+        $id_produto = $req->produto_id;
+
+        $data = Produto::find($id_produto);
+
+        $data->ean_produto = $req->codigo;
+        $data->nome_produto = $req->nome_produto;
+        $data->preco_produto = $req->preco;
+        $data->custo_produto = $req->custo;
+        $data->validade_produto = $req->data_vencimento;
+        $data->fabricacao_produto = $req->data_fabricacao;
+        $data->id_fabricante = "3"; #req->id_fabricante quando o formulário puxar as opções de fabricante pelo banco
+            
+        $data->save();
+
+        return redirect()->back();
+    }
+
     public function deletaProduto(Request $req){
-        Produto::find($req->CODIGO_INTERNO)->delete();
+  
+        $produto=Produto::find($req->CODIGO_INTERNO);
+        $produto->delete(); //returns true/false
     }
 }
