@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class DadosProduto extends Model
 {
-    protected $table = "dados_produto";
+    protected $table = "DADOS_PRODUTO";
     public $timestamps = false; #remove updated_at, created_at collumns
     use HasFactory;
 }

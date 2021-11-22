@@ -31,12 +31,12 @@
                             </div>
 
                             <div>
-                            <label class="titulo" for="datafabproduto">DATA DE FABRICAÇÃO</label>
+                            <label class="titulo input-fabricacao" for="datafabproduto">DATA DE FABRICAÇÃO</label>
                             <input type="date" id="fabricacao_produto" name="data_fabricacao" placeholder="11/02/1990" required>
                             </div>
 
                             <div>
-                            <label class="titulo" for="datavencproduto">DATA DE VENCIMENTO</label>
+                            <label class="titulo input-validade" for="datavencproduto">DATA DE VENCIMENTO</label>
                             <input type="date" id="vencimento_produto" name="data_vencimento" placeholder="11/02/1990" required>
                             </div>
                             <div>

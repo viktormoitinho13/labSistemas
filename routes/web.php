@@ -1,11 +1,9 @@
 <?php
 
-use App\Http\Controllers\UserAuthController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ProdutoController;
-use App\Http\Controllers\LojaController;
-use App\Http\Controllers\FabricanteController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -19,21 +17,21 @@ use App\Http\Controllers\FabricanteController;
 |
 */
 
-Route::get('/', [UserAuthController::class, 'loginForm'])->name('loginForm');
-Route::post('/login', [UserAuthController::class, 'login'])->name('login');
-Route::post('/logout', [UserAuthController::class, 'logout'])->name('logout');
+Route::get('/', [AuthController::class, 'loginForm'])->name('loginForm');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 //Route::post('/getDetalhesProduto', [UserAuthController::class, 'getDetalhesProduto'])->name('get.DetalhesProduto');
-Route::get('/getListaProdutos', [UserAuthController::class, 'ListaProdutos'])->name('get.ListaProduto');
+Route::get('/getListaProdutos', [UserController::class, 'ListaProdutos'])->name('get.ListaProduto');
 
 Route::middleware(['auth'])->group(function () {
     Route::post('/cadastrofuncionario', [AdminController::class, 'cadastrofuncionario']);
-    Route::post('/cadastroproduto', [ProdutoController::class, 'cadastroproduto']);
-    Route::post('/cadastroloja', [LojaController::class, 'cadastroloja']);
-    Route::post('/cadastrofabricante', [FabricanteController::class, 'cadastrofabricante']);
-    Route::post('/procura', [UserAuthController::class, 'procura'])->name('procuraProdutos');
-    Route::delete('/deletaProduto', [UserAuthController::class, 'deleta'])->name('deletaProdutos');
-    Route::get('/home', [UserAuthController::class, 'home']);
+    Route::post('/cadastroproduto', [AdminController::class, 'cadastroproduto']);
+    Route::post('/cadastroloja', [AdminController::class, 'cadastroloja']);
+    Route::post('/cadastrofabricante', [AdminController::class, 'cadastrofabricante']);
+    Route::post('/procura', [UserController::class, 'procura'])->name('procuraProdutos');
+    //Route::delete('/deletaProduto', [AdminController::class, 'deleta'])->name('deletaProdutos');
+    Route::get('/home', [AuthController::class, 'home']);
 });
     
 
