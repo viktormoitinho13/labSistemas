@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\DadosProduto;
 use App\Models\Funcionario;
 use App\Models\Produto;
 use App\Models\Fabricante;
@@ -23,6 +24,7 @@ class AdminController extends Controller
         $data->save();
         return redirect()->back();
     }
+
 
     public function cadastroproduto(Request $req)
     {
@@ -73,7 +75,7 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
-    public function deleta(Request $req){
-        DadosProduto::find($req->CODIGO_INTERNO)->delete();
+    public function deletaProduto(Request $req){
+        Produto::find($req->CODIGO_INTERNO)->delete();
     }
 }

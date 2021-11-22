@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Funcionario;
 use App\Models\Produto;
+use App\Models\Loja;
 use App\Models\DadosProduto;
 
 class UserController extends Controller
@@ -14,6 +15,11 @@ class UserController extends Controller
         return response()->json([
             'produtos'=>$produtos,
         ]);
+    }
+
+    public function getListaLoja(){
+        $lojas=Loja::all();
+        return response()->json(['lojas'=>$lojas,]);
     }
 
     public function procura(Request $req){
@@ -32,4 +38,6 @@ class UserController extends Controller
         $produto_detalhes = Produto::where('ID_ESTOQUE', $produto_id)->get();
         return response()->json(['detalhes'=>$produto_detalhes]);
     }
+
+    
 }

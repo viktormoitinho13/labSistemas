@@ -145,9 +145,9 @@
                                 );
                         });
                     },
-                    error: function(response2){
+                    error: function(response){
                         alert("Erro ao efetuar pesquisa de produtos")
-                        console.log(data);
+                        console.log(response);
                     }
                 }); 
             })
@@ -160,11 +160,13 @@
                     datatype: "json",
                     data: {produto_id:produto_id},
                     success: function(data){
-                        //alert(data.detalhes[0].NOME_PRODUTO);
+                        // alert(data.detalhes[0].NOME_PRODUTO);
+
+                        
                         $('.editProduto').modal('show');
                     },
                     error: function(data){
-                        alert(id_produto);
+                        console.log(data);
                     }
                 });
             });
@@ -172,7 +174,19 @@
 
             $(document).on('click', '#deletaProduto', function(){
                 var id_produto = $(this).attr("produto-id");
-                alert(id_produto);
+                $.ajax({
+                  type: "delete",
+                  url: '/deletaProduto',
+                  datatype: 'json',
+                  data: {CODIGO_INTERNO:id_produto},
+                  sucess: function(response){
+                     alert('Produto deletado com sucesso');
+                  },
+                  error: function(response){
+                     alert('Erro ao deletar produto');
+                     console.log(response);
+                  }
+                });
             });
         });
 

@@ -18,16 +18,6 @@
                     </thead>
 
                     <tbody class="resultProduto">
-                    @if(isset($data))
-                    
-
-                    @if(method_exists($data,'links'))
-                        <div class="d-flex justify-content-center">
-                            {!! $data->links() !!}
-                        </div>
-                    @endif
-
-                    @endif
                     </tbody>
 
                 </table>

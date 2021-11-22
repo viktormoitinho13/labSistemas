@@ -21,8 +21,12 @@ Route::get('/', [AuthController::class, 'loginForm'])->name('loginForm');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-//Route::post('/getDetalhesProduto', [UserAuthController::class, 'getDetalhesProduto'])->name('get.DetalhesProduto');
+Route::post('/getDetalhesProduto', [UserController::class, 'getDetalhesProduto'])->name('get.DetalhesProduto');
 Route::get('/getListaProdutos', [UserController::class, 'ListaProdutos'])->name('get.ListaProduto');
+Route::get('/getListaLojas', [UserController::class, 'getListaLoja']);
+Route::get('/modal', function(){
+    return view('admin.editProdutoModal');
+});
 
 Route::middleware(['auth'])->group(function () {
     Route::post('/cadastrofuncionario', [AdminController::class, 'cadastrofuncionario']);
@@ -30,7 +34,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/cadastroloja', [AdminController::class, 'cadastroloja']);
     Route::post('/cadastrofabricante', [AdminController::class, 'cadastrofabricante']);
     Route::post('/procura', [UserController::class, 'procura'])->name('procuraProdutos');
-    //Route::delete('/deletaProduto', [AdminController::class, 'deleta'])->name('deletaProdutos');
+    Route::delete('/deletaProduto', [AdminController::class, 'deletaProduto'])->name('deletaProdutos');
     Route::get('/home', [AuthController::class, 'home']);
 });
     

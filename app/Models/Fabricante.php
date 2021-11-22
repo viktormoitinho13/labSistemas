@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Fabricante extends Model
 {
     protected $table = "FABRICANTE";
-    protected $primarykey = "ID_FABRICANTE";
+    protected $primaryKey = "ID_FABRICANTE";
     public $timestamps = false; #remove updated_at, created_at collumns
     use HasFactory;
 }

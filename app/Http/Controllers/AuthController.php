@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Usuario;
-use App\Models\DadosProduto;
-use App\Models\Produto;
 
 class AuthController extends Controller
 {
