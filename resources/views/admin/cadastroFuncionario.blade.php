@@ -5,26 +5,26 @@
                                     </svg> Cadastro de Funcionário</b>
                 </header>
                 <div class="login">
-                    <form action="{{url('cadastrofuncionario')}}" class="login__form" method="POST">
+                    <form class="login__form formulario_funcionario">
                         @csrf
                         <div>
                             <label class="titulo" for="nome">NOME</label>
-                            <input type="text" id="nome" name="nome" placeholder="Marcelo" required>
+                            <input type="text" id="nome_funcionario" name="nome" placeholder="Marcelo" required>
                             </div>
 
                             <div>
                             <label class="titulo" for="nome">SOBRENOME</label>
-                            <input type="text" id="nome" name="sobrenome" placeholder="Oliveira da Silva" required>
+                            <input type="text" id="sobrenome_funcionario" name="sobrenome" placeholder="Oliveira da Silva" required>
                             </div>
 
                             <div>
                             <label class="titulo" for="cpf">CPF</label>
-                            <input type="number" id="cpf" name="cpf" placeholder="40033322211" required>
+                            <input type="number" id="cpf_funcionario" name="cpf" placeholder="40033322211" required>
                             </div>
 
                             <div>
                             <label class="titulo" for="nascimento">DATA DE NASCIMENTO</label>
-                            <input type="date" id="nascimento" name="nascimento" placeholder="11/02/1990" required>
+                            <input type="date" id="nascimento_funcionario" name="nascimento" placeholder="11/02/1990" required>
                             </div>
 
                             <div>
@@ -38,7 +38,7 @@
                             </div>
 
                             <div>
-                            <select required class="titulo" type="text" name="selectloja" required>
+                            <select required class="titulo" id="cargo" type="text" name="selectloja" required>
                                         <option value="" class="titulo" disabled="disabled" selected="selected" >ESCOLHA A LOJA</option>
                                         <option value="1">LOJA 1 - GUARULHOS</option>
                                         <option value="2">LOJA 2 - VILA GALVÃO</option>
@@ -53,7 +53,7 @@
                             </div>
 
                             <div>
-                            <input class="button" type="submit" value="Cadastrar">
+                            <input id="submitFuncionario" class="button" type="button" value="Cadastrar">
                             </div>
                     </form>
                 </div>  

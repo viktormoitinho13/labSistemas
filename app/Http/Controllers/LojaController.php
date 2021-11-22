@@ -16,9 +16,7 @@ class LojaController extends Controller
         $data->cnpj_loja = $req->cnpj_loja;
         $data->telefone_loja = $req->telefone_loja;
         $data->email_loja = $req->email_loja;
-
         $data->save();
-
 
         return redirect()->back();
     }

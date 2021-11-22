@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     @include('css')
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 </head>
 <body>
 

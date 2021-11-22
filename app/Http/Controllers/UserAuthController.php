@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Usuario;
 use App\Models\DadosProduto;
+use App\Models\Produto;
 
 class UserAuthController extends Controller
 {
@@ -32,7 +33,7 @@ class UserAuthController extends Controller
     }
 
     public function ListaProdutos(){
-        $produtos=DadosProduto::all();
+        $produtos=Produto::all();
         return response()->json([
             'produtos'=>$produtos,
         ]);
@@ -47,6 +48,16 @@ class UserAuthController extends Controller
         return response()->json([
             'produtos'=>$data,
         ]);
+    }
+
+    public function getDetalhesProduto(Request $req){
+        $produto_id = $req->produto_id;
+        $produto_detalhes = Produto::where('ID_ESTOQUE', $produto_id)->get();
+        return response()->json(['detalhes'=>$produto_detalhes]);
+    }
+
+    public function deleta(Request $req){
+        DadosProduto::find($req->CODIGO_INTERNO)->delete();
     }
     
     public function logout(Request $req){

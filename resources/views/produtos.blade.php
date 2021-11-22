@@ -5,6 +5,7 @@
                     <input id="busca" class="btn btn-primary btnpesquisa" type="submit" value="Pesquisar">
                 </form>
                 <table class="table">
+                @include('admin.editProdutoModal')
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">Código Interno</th>
